@@ -1,0 +1,501 @@
+
+/* =========================
+   GLOBAL LAYOUT
+========================= */
+
+.app {
+  min-height: 100vh;
+  background: #f8f7fc;
+  color: #211d35;
+}
+
+button {
+  transition: background 0.2s ease, transform 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================
+   HEADER / BRAND
+========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: #ede9fe;
+  color: #7357ed;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.brand-name {
+  color: #211d35;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 76px 24px 55px;
+  text-align: center;
+}
+
+.hero > p:first-child {
+  margin: 0 0 20px;
+  color: #7357ed;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 900px;
+  margin: 0 auto 22px;
+  color: #211d35;
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2.8px;
+}
+
+.hero h1 span {
+  color: #7357ed;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 28px;
+  color: #77738b;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.main-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 25px;
+  border: 0;
+  border-radius: 12px;
+  background: #7357ed;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 7px 18px rgba(115, 87, 237, 0.2);
+}
+
+.main-button:hover {
+  background: #6042db;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MAIN WORKSPACE
+========================= */
+
+.workspace {
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto 60px;
+  padding: 38px;
+  border: 1px solid #ece9f5;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 12px 45px rgba(43, 30, 91, 0.055);
+}
+
+.workspace-heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.workspace-heading > p:first-child {
+  margin: 0 0 10px;
+  color: #7357ed;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.workspace-heading h2 {
+  margin: 0 0 12px;
+  color: #211d35;
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+}
+
+.workspace-heading p {
+  color: #858096;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================
+   SPEECH / TEXT TABS
+========================= */
+
+.workspace > div > button,
+.workspace > button {
+  border-radius: 10px;
+}
+
+.workspace button {
+  font-weight: 600;
+}
+
+.workspace button:not(.main-button):not(.input-option):not(
+  .stop-record-button
+) {
+  padding: 11px 16px;
+}
+
+.workspace > div:has(> button:first-child) {
+  text-align: center;
+}
+
+.workspace > div > button + button {
+  margin-left: 8px;
+}
+
+.workspace button:focus-visible {
+  outline: 3px solid #c4b5fd;
+  outline-offset: 3px;
+}
+
+/* =========================
+   INPUT METHOD CARDS
+========================= */
+
+.input-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0 34px;
+}
+
+.input-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 92px;
+  padding: 18px;
+  border: 1px solid #e9e5f5;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #211d35;
+  text-align: left;
+}
+
+.input-option:hover {
+  border-color: #b8a8ff;
+  background: #faf8ff;
+  transform: translateY(-2px);
+}
+
+.input-option.active,
+.input-option[aria-pressed="true"] {
+  border-color: #8b72f6;
+  background: #f4f0ff;
+  box-shadow: 0 0 0 2px rgba(115, 87, 237, 0.06);
+}
+
+.option-icon {
+  display: flex;
+  flex: 0 0 46px;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: #eee9ff;
+  color: #7357ed;
+  font-size: 22px;
+}
+
+.input-option strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.input-option small {
+  display: block;
+  color: #858096;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* =========================
+   INPUT CONTENT
+========================= */
+
+.workspace h3 {
+  margin: 0 0 12px;
+  color: #29243e;
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.workspace p {
+  line-height: 1.7;
+}
+
+.workspace input[type="file"] {
+  display: block;
+  width: 100%;
+  margin: 18px 0;
+  padding: 14px;
+  border: 1px dashed #cfc6ef;
+  border-radius: 12px;
+  background: #faf9ff;
+  color: #68627c;
+  font-size: 13px;
+}
+
+.workspace input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #eee9ff;
+  color: #6247d9;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.workspace audio {
+  display: block;
+  width: 100%;
+  margin: 18px 0;
+}
+
+/* =========================
+   RECORDING
+========================= */
+
+.record-card {
+  padding: 30px 20px;
+  border: 1px solid #eeeaf7;
+  border-radius: 18px;
+  background: #fcfbff;
+  text-align: center;
+}
+
+.microphone-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background: #eee9ff;
+  color: #7357ed;
+  font-size: 32px;
+}
+
+.recording .microphone-circle {
+  background: #feecec;
+  color: #d94d64;
+  animation: record-pulse 1.5s infinite;
+}
+
+@keyframes record-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(217, 77, 100, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(217, 77, 100, 0);
+  }
+}
+
+.stop-record-button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: #d94d64;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.recorded-result {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid #e9e5f5;
+  border-radius: 14px;
+  background: #ffffff;
+  text-align: left;
+}
+
+/* =========================
+   MESSAGE EDITOR
+========================= */
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 170px;
+  margin: 16px 0;
+  padding: 17px;
+  resize: vertical;
+  border: 1px solid #e3deef;
+  border-radius: 14px;
+  background: #fcfbff;
+  color: #29243e;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea::placeholder {
+  color: #a19bb3;
+}
+
+textarea:focus {
+  border-color: #8b72f6;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(115, 87, 237, 0.1);
+}
+
+.full-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: #7357ed;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.full-button:hover {
+  background: #6042db;
+}
+
+.speech-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.speech-actions button {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* =========================
+   STATUS / HELPER TEXT
+========================= */
+
+.workspace small {
+  color: #858096;
+  line-height: 1.6;
+}
+
+.workspace .error,
+.workspace [role="alert"] {
+  color: #c03952;
+}
+
+.workspace .status {
+  color: #6650cf;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 52px 20px 38px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 9vw, 52px);
+    letter-spacing: -1.8px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .workspace {
+    width: calc(100% - 24px);
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .input-options {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .input-option {
+    min-height: 80px;
+  }
+
+  .workspace-heading h2 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .workspace {
+    padding: 20px 14px;
+  }
+
+  .speech-actions {
+    flex-direction: column;
+  }
+
+  .speech-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
